@@ -11,7 +11,8 @@ Trello Functionality Clone
 ![](Readme-images/readmeimage1.png)
 <br />
 **3.** Click on link, to verify email.
-![](Readme-images/readmeimage2.png)
+<br />
+![](Readme-images/readmeimage2.jpg)
 <br />
 **4.** Enter login information and click Log In. pou will be redirected to your proIle
 page.
