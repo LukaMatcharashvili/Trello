@@ -3,7 +3,7 @@ Trello Functionality Clone
 
 # Application Guide #
 
-**1.** Go to My [Trello-Clone](https://trello-clone-a597d.web.app/register) Website
+**1.** Go to My [Trello-Clone](https://trello-clone-a597d.web.app/register) Registration Page
 <br />
 
 **2.** Enter register information and click register. Link will be sent on the email
