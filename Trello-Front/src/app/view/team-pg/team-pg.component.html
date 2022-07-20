@@ -1,0 +1,100 @@
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+  "
+  class="add-todo-btn-box"
+>
+  <button (click)="onAddTeamBtnClick()" mat-raised-button color="primary">
+    Add Todo
+  </button>
+  <button (click)="onSeeMembersBtnClick()" mat-raised-button color="accent">
+    See Members
+  </button>
+  <button (click)="onMemberUpdateBtnClick()" mat-raised-button color="warn">
+    Update Team
+  </button>
+</div>
+
+<div class="main" cdkDropListGroup>
+  <div class="example-container">
+    <h2
+      [ngStyle]="{
+        color: 'black'
+      }"
+    >
+      Todo
+    </h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        #toDoItem
+        class="example-box"
+        *ngFor="let item of todo; let i = index"
+        cdkDrag
+      >
+        <div class="example-text">{{ item.title }}</div>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <i
+            [ngStyle]="{
+              color: 'rgb(31,184,248)'
+            }"
+            class="fa-solid fa-ellipsis"
+          ></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="onToDoSeeDetailsBtnClick(i)" mat-menu-item>
+            Details
+          </button>
+          <button (click)="onToDoItem(i)" mat-menu-item>Delete</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2
+      [ngStyle]="{
+        color: 'black'
+      }"
+    >
+      Done
+    </h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        #doneItem
+        class="example-box"
+        *ngFor="let item of done; let i = index"
+        cdkDrag
+      >
+        <div class="example-text">{{ item.title }}</div>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <i
+            [ngStyle]="{
+              color: 'rgb(31,184,248)'
+            }"
+            class="fa-solid fa-ellipsis"
+          ></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="onDoneSeeDetailsBtnClick(i)" mat-menu-item>
+            Details
+          </button>
+          <button (click)="onDoneItem(i)" mat-menu-item>Delete</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</div>

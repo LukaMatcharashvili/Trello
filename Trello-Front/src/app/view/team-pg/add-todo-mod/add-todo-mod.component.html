@@ -1,0 +1,34 @@
+<article
+  [ngStyle]="{
+    width: '70vh',
+    display: 'flex',
+    'flex-direction': 'column',
+    'align-items': 'center'
+  }"
+>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Enter Todo Title</mat-label>
+    <input #ToDoTitleInp matInput placeholder="Ex. Read a Book" />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Enter Todo Description</mat-label>
+    <textarea #ToDoDescInp matInput placeholder="Enter here"></textarea>
+  </mat-form-field>
+  <br />
+  <button
+    [ngStyle]="{
+      'background-color': 'rgb(31,184,248)'
+    }"
+    (click)="
+      onNewToDoAddBtnClick({
+        todo: ToDoDescInp.value,
+        title: ToDoTitleInp.value
+      })
+    "
+    mat-raised-button
+    color="primary"
+  >
+    Add
+  </button>
+</article>

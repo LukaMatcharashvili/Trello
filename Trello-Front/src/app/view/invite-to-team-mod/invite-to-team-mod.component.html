@@ -1,0 +1,9 @@
+<mat-list role="list">
+  <mat-list-item
+    *ngFor="let team of teams; let idx = index"
+    (click)="onInviteBtnClick(team._id)"
+    style="cursor: pointer"
+    role="listitem"
+    ><b>{{ idx + 1 }}: </b>{{ team.title }}</mat-list-item
+  >
+</mat-list>

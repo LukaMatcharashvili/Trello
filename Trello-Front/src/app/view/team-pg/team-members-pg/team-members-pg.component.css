@@ -1,0 +1,13 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.member-box {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}

@@ -1,0 +1,18 @@
+<section mat-dialog-content>
+  <div class="member-box" *ngFor="let member of members; let memberIdx = index">
+    <h3>
+      <b>{{ member.username }}</b>
+    </h3>
+    <div class="example-button-container">
+      <button
+        (click)="onMemberDeleteBtnClick(memberIdx)"
+        [disabled]="member._id === data.team.owner"
+        mat-fab
+        color="primary"
+        aria-label="Example icon button with a delete icon"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</section>

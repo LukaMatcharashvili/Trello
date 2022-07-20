@@ -1,0 +1,10 @@
+.example-full-width {
+  max-width: 100%;
+}
+
+article {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

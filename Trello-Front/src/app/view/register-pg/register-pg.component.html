@@ -1,0 +1,57 @@
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()" class="example-form">
+  <input (change)="onImageUpload($event)" type="file" />
+  <img *ngIf="uploadedImg" [src]="uploadedImg" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Username</mat-label>
+    <input formControlName="username" matInput placeholder="Ex. John" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Ex. test@gmail.com" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input
+      formControlName="password"
+      matInput
+      [type]="hide ? 'password' : 'text'"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Confirm password</mat-label>
+    <input
+      formControlName="confirmPassword"
+      matInput
+      [type]="hide ? 'password' : 'text'"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="auth-form-actions">
+    <button
+      [disabled]="userForm.invalid"
+      type="submit"
+      mat-raised-button
+      color="primary"
+    >
+      Register
+    </button>
+    <a routerLink="/login">Login Instead</a>
+  </div>
+</form>

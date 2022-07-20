@@ -1,0 +1,45 @@
+<form (ngSubmit)="onFormSubmit()" mat-dialog-content class="example-form">
+  <div>
+    <input (change)="onImageUpload($event)" type="file" />
+  </div>
+  <img *ngIf="userData.image" [src]="userData.image" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Username</mat-label>
+    <input
+      name="username"
+      [(ngModel)]="userData.username"
+      matInput
+      placeholder="Ex. John"
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      name="email"
+      [(ngModel)]="userData.email"
+      matInput
+      placeholder="Ex. test@gmail.com"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your new password</mat-label>
+    <input
+      name="password"
+      [(ngModel)]="userData.password"
+      matInput
+      [type]="hide ? 'password' : 'text'"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="auth-form-actions">
+    <button type="submit" mat-raised-button color="primary">Save</button>
+  </div>
+</form>

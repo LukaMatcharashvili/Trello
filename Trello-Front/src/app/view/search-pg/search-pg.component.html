@@ -1,0 +1,26 @@
+<article *ngIf="users.length === 0" class="not-found-box">
+  <img
+    src="https://cdn.dribbble.com/users/88213/screenshots/8560585/media/7263b7aaa8077a322b0f12a7cd7c7404.png?compress=1&resize=768x576&vertical=top"
+    alt="not found message image"
+  />
+</article>
+
+<div *ngIf="users.length > 0" class="container">
+  <div *ngFor="let user of users" class="box">
+    <div class="imgBox">
+      <img [src]="user.image" alt="user profile picture" />
+    </div>
+    <div class="content">
+      <h2>
+        {{ user.username }}<br />
+        <button
+          (click)="onUserInviteBtnClick(user._id)"
+          color="accent"
+          mat-button
+        >
+          Invite To Team
+        </button>
+      </h2>
+    </div>
+  </div>
+</div>
