@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMaterialModule } from './ng-material.module';
 import { HomePgComponent } from './view/home-pg/home-pg.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfilePgComponent } from './view/profile-pg/profile-pg.component';
 import { LoginPgComponent } from './view/login-pg/login-pg.component';
 import { RegisterPgComponent } from './view/register-pg/register-pg.component';
@@ -23,6 +23,8 @@ import { AddTodoModComponent } from './view/team-pg/add-todo-mod/add-todo-mod.co
 import { TodoDetailsPgComponent } from './view/team-pg/todo-details-pg/todo-details-pg.component';
 import { TeamMembersPgComponent } from './view/team-pg/team-members-pg/team-members-pg.component';
 import { UpdateTeamPgComponent } from './view/team-pg/update-team-pg/update-team-pg.component';
+import { LoadingService } from './interceptors/loading.service';
+import { LoaderInterceptorService } from './interceptors/loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,15 @@ import { UpdateTeamPgComponent } from './view/team-pg/update-team-pg/update-team
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    LoadingService,
+    LoaderInterceptorService,
+    {
+      useClass: LoaderInterceptorService,
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
