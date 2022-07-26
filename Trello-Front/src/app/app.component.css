@@ -21,6 +21,10 @@ mat-drawer {
   width: 40%;
 }
 
+.search-input {
+  width: 140px;
+}
+
 mat-drawer-content {
   display: flex;
   flex-direction: column;
